@@ -1,6 +1,6 @@
 function App() {
   const students = [
-    { id: 1, name: "Ali", marks: 95 },
+    { id: 1, name: "Ali", marks: 90 },
     { id: 2, name: "Ahmed", marks: 82 },
     { id: 3, name: "Sara", marks: 76 },
     { id: 4, name: "Ayesha", marks: 68 },
@@ -10,16 +10,18 @@ function App() {
 
   const Pass = ({ student }) => (
     <div>
-      <h3>{student.name}</h3>
-      <p>Marks: {student.marks}</p>
+      <h3 >Name:{student.name}</h3>
+      <p>Your Marks is {student.marks}</p>
+      <p>Status: Pass </p>
     </div>
   );
 
   const Fail = ({ student }) => (
     <div>
-      <h3>{student.name}</h3>
+      <h3>Name :{student.name}</h3>
       <p>Marks: {student.marks}</p>
-      <p>Status: Fail ❌</p>
+      <p>Work Harder Next Time!</p>
+      <p>Status: Fail </p>
     </div>
   );
 
@@ -34,12 +36,14 @@ function App() {
 
   return (
     <div style={{ padding: "20px", fontFamily: "Arial" }}>
-      <h1>Student Result Assignment</h1>
+      <h1>Student Result Sheet</h1>
 
       {students.map((student) => (
         <div key={student.id}>
           {student.marks >= 50 ? (
+            
             <Pass student={student} />
+            
           ) : (
             <Fail student={student} />
           )}
@@ -48,7 +52,6 @@ function App() {
             <strong>Grade:</strong> {Grade(student.marks)}
           </p>
 
-          {/* 1- hr after each result */}
           <hr />
         </div>
       ))}
@@ -57,9 +60,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
